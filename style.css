@@ -1,0 +1,124 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1 {
+	margin-top: -3rem;
+	margin-bottom: 3rem;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: sans-serif;
+	background-color: #eed;
+}
+
+.tooltip {
+	color: #eee;
+	background-color: #c63;
+	margin-bottom: 1rem;
+	padding: .75rem 1.5rem;
+	position: relative;
+	width: 8rem;
+	text-align: center;
+	border-radius: .5rem;
+	letter-spacing: .05rem;
+}
+
+/* Tooltip Generic Config */
+
+.tooltip:hover::before {
+	background-color: #36c;
+	padding: .75rem 1rem;
+	border-radius: 1.5rem;
+	z-index: 2;
+	width: 100%;
+	max-width: 8rem;
+	position: absolute;
+}
+
+.tooltip:hover::after {
+	content: '';
+	width: 2rem;
+	height: 2rem;
+	background-color: #36c;
+	position: absolute;
+}
+
+/* Top Tooltip */
+
+.top-tooltip:hover::before	 {
+	content: 'Lorem ipsum dolor sit.';
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, calc(-100% - .5rem));
+}
+
+.top-tooltip::after {
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -100%) rotate(45deg);
+}
+
+/* Right Tooltip */
+
+.right-tooltip:hover::before	 {
+	content: 'Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur.';
+	top: 50%;
+	left: calc(100% + .5rem);
+	transform: translateY(-50%);
+}
+
+.right-tooltip::after {
+	top: 50%;
+	left: 100%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+/* Left Tooltip */
+
+.left-tooltip:hover::before	 {
+	content: 'Lorem ipsum dolor sit.';
+	top: 50%;
+	right: calc(100% + .5rem);
+	transform: translateY(-50%);
+}
+
+.left-tooltip::after {
+	top: 50%;
+	right: 100%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+/* Bottom Tooltip */
+
+.bottom-tooltip:hover::before	 {
+	content: 'Lorem ipsum dolor sit.';
+	bottom: 0%;
+	left: 50%;
+	transform: translate(-50%, calc(100% + .5rem));
+}
+
+.bottom-tooltip::after {
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 100%) rotate(45deg);
+}
+
+@media screen and (max-width: 480px) {
+	.tooltip {
+		width: 20vw;
+		font-size: .9rem;
+	}
+
+	.right-tooltip:hover::before, .left-tooltip:hover::before {
+		max-width: 4rem;
+		font-size: .7rem;
+	}
+}
